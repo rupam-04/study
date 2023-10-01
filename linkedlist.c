@@ -44,6 +44,13 @@ void insertFront(ll** head, int data)
 {
     ll* newnode = (ll*)malloc(sizeof(ll));
     newnode->data = data;
+    if (*head == NULL)
+    {
+        newnode->next = NULL;
+        *head = newnode;
+        return;
+    }
+    newnode->next = *head;
     *head = newnode;
 }
 void insertEnd(ll** head, int data)

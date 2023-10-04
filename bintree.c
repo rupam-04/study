@@ -81,6 +81,18 @@ void insert(node **root, int data)
     }
 }
 
+int height(node *root)
+{
+    if (root == NULL)
+        return 0;
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);
+    if (leftHeight > rightHeight)
+        return leftHeight + 1;
+    else
+        return rightHeight + 1;
+}
+
 int main()
 {
     int ch, data;
@@ -113,5 +125,6 @@ int main()
     preorder(root);
     printf("\nPostorder: ");
     postorder(root);
+    printf("\nHeight: %d\n", height(root));
     return 0;
 }
